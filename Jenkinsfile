@@ -1,18 +1,15 @@
 pipeline {
     agent any
-
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                // Checkout the GitHub repository
-                git branch: 'main', 
-                    git branch: 'main', credentialsId: 'jenkins-github', url: 'https://github.com/AryanRawwat/vsd.git'
-                
-                // Print the contents of the repository
-                script {
-                    sh 'ls -la'
-                }
+                git(
+                    url: 'https://github.com/AryanRawwat/vsd.git',
+                    branch: 'main',
+                    credentialsId: 'jenkins-github'
+                )
             }
         }
+        // other stages here
     }
 }
