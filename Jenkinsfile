@@ -1,6 +1,6 @@
 pipeline {
     agent any
-        environment {
+    environment {
         MAVEN_HOME = tool name: 'Maven' // Ensure Maven is configured in Jenkins
     }
 
@@ -20,17 +20,10 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn clean compile package"
             }
         }
-        stage('Test') {
-            steps {
-                script {
-                    sh "${MAVEN_HOME}/bin/mvn test"
-                }
-            }
-        }
     }
     post {
         success {
-            echo 'Build and tests completed successfully!'
+            echo 'Build completed successfully!'
         }
         failure {
             echo 'Pipeline failed. Please check the logs for details.'
