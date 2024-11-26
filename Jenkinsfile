@@ -20,10 +20,11 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn clean compile package"
             }
         }
-        stage('Build') {
+        stage('Test') {
             steps {
-                echo 'Building the project...'
-                sh "${MAVEN_HOME}/bin/mvn clean compile package"
+                script {
+                    sh "${MAVEN_HOME}/bin/mvn test"
+                }
             }
         }
     }
