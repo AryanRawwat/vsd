@@ -1,0 +1,13 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="2.5">
+    <display-name>Java Tomcat Example</display-name>
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.App</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+</web-app>
+
