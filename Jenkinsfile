@@ -20,6 +20,21 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn clean compile package"
             }
         }
+        stage('Deploy to Nexus (Manual)') {
+            steps {
+                echo 'Manually deploying artifact to Nexus to create metadata...'
+                sh """
+                    ${MAVEN_HOME}/bin/mvn deploy:deploy-file \
+                        -Durl=http://3.111.219.116:8081/repository/maven-repo-snapshot/ \
+                        -DrepositoryId=nexus \
+                        -Dfile=target/java-tomcat-example.war \
+                        -DgroupId=com.example \
+                        -DartifactId=java-tomcat-example \
+                        -Dversion=1.0-SNAPSHOT \
+                        -Dpackaging=war
+                """
+            }
+        }
         stage('Upload to Nexus') {
             steps {
                 echo 'Uploading artifact to Nexus...'
