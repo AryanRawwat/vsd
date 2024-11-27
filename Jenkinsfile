@@ -24,23 +24,9 @@ pipeline {
             steps {
                 echo 'Uploading artifact to Nexus...'
 
-                nexusArtifactUploader(
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    nexusUrl: 'http://3.111.219.116:8081/repository/maven-repo-snapshot/',
-                    repository: 'maven-repo-snapshot',  // Ensure correct repository for snapshots
-                    credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
-                    groupId: 'com.example',  // Ensure groupId is specified here
-                    version: '1.0-SNAPSHOT', // Ensure version is specified here
-                    artifacts: [
-                        [
-                            artifactId: 'java-tomcat-example',
-                            file: 'target/java-tomcat-example.war',
-                            type: 'war',
-                            classifier: '' // Optional, remove if not needed
-                        ]
-                    ]
-                )
+                nexusArtifactUploader artifacts: [[artifactId: 'java-tomcat-example', classifier: '', file: 'target/java-tomcat-example.war', type: 'war']], credentialsId: 'ForNexus', groupId: 'com.example', nexusUrl: '3.111.219.116:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-repo-snapshot', version: '1.0-SNAPSHOT'
+                    
+                
             }
         }
     }
