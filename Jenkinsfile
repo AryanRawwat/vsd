@@ -29,6 +29,11 @@ pipeline {
                 
             }
         }
+        stage('Deploy to Tomcat') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '/manager', url: 'http://15.207.117.38:8080/manager')], contextPath: '/myapp', war: 'target/java-tomcat-example.war'
+            }
+        }
     }
     post {
         success {
