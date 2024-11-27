@@ -31,7 +31,7 @@ pipeline {
                     groupId: 'com.example',
                     version: '1.0-SNAPSHOT',
                     artifactId: 'java-tomcat-example',
-                    credentialsId: '<nexus-credentials>', // Replace with actual credentials ID in Jenkins
+                    credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
                     artifacts: [
                         [
                             artifactId: 'java-tomcat-example',
