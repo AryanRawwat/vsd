@@ -23,11 +23,13 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 echo 'Uploading artifact to Nexus...'
+
+                // Ensure you are using the correct repository for SNAPSHOT versions
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: 'http://3.111.219.116:8081/',
-                    repository: 'maven-repo-snapshot', // Use "maven-releases" for non-SNAPSHOT versions
+                    nexusUrl: 'http://3.111.219.116:8081/',  // Corrected URL
+                    repository: 'maven-repo-snapshot',  // Use the snapshot repository
                     credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
                     groupId: 'com.example',  // Ensure groupId is specified here
                     version: '1.0-SNAPSHOT', // Ensure version is specified here
