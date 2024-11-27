@@ -27,7 +27,7 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: 'http://3.111.219.116:8081/repository/maven-repo-snapshot',  // Corrected URL for your Nexus repository
+                    nexusUrl: 'http://3.111.219.116:8081/repository/maven-repo-snapshot/',
                     repository: 'maven-repo-snapshot',  // Ensure correct repository for snapshots
                     credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
                     groupId: 'com.example',  // Ensure groupId is specified here
