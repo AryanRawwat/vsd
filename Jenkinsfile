@@ -27,7 +27,7 @@ pipeline {
                     nexusVersion: 'nexus3',
                     protocol: 'http',
                     nexusUrl: 'http://3.111.219.116:8081/',
-                    repository: 'maven-repo', // Use "maven-releases" for non-SNAPSHOT versions
+                    repository: 'maven-repo-snapshot', // Use "maven-releases" for non-SNAPSHOT versions
                     credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
                     groupId: 'com.example',  // Ensure groupId is specified here
                     version: '1.0-SNAPSHOT', // Ensure version is specified here
