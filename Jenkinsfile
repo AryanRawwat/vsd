@@ -28,16 +28,15 @@ pipeline {
                     protocol: 'http',
                     nexusUrl: 'http://3.111.219.116:8081/',
                     repository: 'maven-repo', // Use "maven-releases" for non-SNAPSHOT versions
-                    groupId: 'com.example',
-                    version: '1.0-SNAPSHOT',
-                    artifactId: 'java-tomcat-example',
-                    credentialsId: 'ForNexus', // Replace with actual credentials ID in Jenkins
+                    credentialsId: '<nexus-credentials>', // Replace with actual credentials ID in Jenkins
                     artifacts: [
                         [
                             artifactId: 'java-tomcat-example',
-                            classifier: '',
-                            file: 'target/java-tomcat-example-1.0-SNAPSHOT.war',
-                            type: 'war'
+                            groupId: 'com.example',
+                            version: '1.0-SNAPSHOT',
+                            file: 'target/java-tomcat-example.war', // Correct relative path
+                            type: 'war',
+                            classifier: '' // Optional, remove if not needed
                         ]
                     ]
                 )
